@@ -27,6 +27,44 @@ Good Luck!
 
 # Regular Field Description
 
+- C/A [TEXT]:
+    - Control Area name/Booth name. This is the internal identification of a booth at a given station;
+    - Examples - **A002** (4 to 5 characters).
+- UNIT [TEXT]:
+    - Remote unit ID of station;
+    - Examples - **R001** (4 characters. A numeric designation preceded by 'R').
+- SCP [TEXT]:
+    - Subunit/Channel/position represents a specific address for a given device;
+    - Example: **01-00-01** - Normally six characters in groups of 2 separated by a dash.
+- STATION [TEXT]:
+    - Name assigned to the subway station by operations planning. This name is used in all references to stations, as well as in debit/credit purchase receipts, and customer’s bank activity statements;
+    - Example: **34 ST-HERALD SQ** - Maximum station name length is 15 characters.
+- LINENAME [TEXT]:
+    - Train lines stopping at this location. Can contain up to 20 single character identifier. When more than one train line appears, it is usually intercepting train lines, in major stations where the passenger can transfer between any one of the lines;
+    - Example: **456** - Maximum station name length is 15 characters.
+- DIVISION [TEXT]:
+    - Represents the Line originally the station belonged to BMT, IRT, or IND;
+    - Each section of the system is assigned a unique line name, usually paired with its original operating company or division (Brooklyn–Manhattan Transit Corporation (BMT), Interborough Rapid Transit Company (IRT), and Independent Subway System (IND);
+    - Example: **BMT** - 3 character in length.
+- DATE [DATE]:
+    - Represents the date of the audit data (MM/DD/YYYY);
+    - Example: **11/18/2014**.
+- TIME [TIME]:
+    - Represents the time of the reported data (HH:MM:SS);
+    - The normal interval between audit reports for the same device is 4 hours. The four hour intervals will differ from other stations due to the need for staggering to prevent flooding the system with audit readings all at once. Systemwide, stations have been set to begin audit transmittal between 00 to 03 hours, then every 4 hours after the first audit of the day;
+    - Example: **02:00:00**.
+- DESC [TEXT]:
+    - Represent the "REGULAR" scheduled audit event (Normally occurs every 4 hours):
+        1. Audits may occur more frequently than 4 hours due to planning, or troubleshooting activities;
+        2. Additionally, there may be a "RECOVR AUD" entry: This refers to a missed audit that was recovered. If a recovered audit is sent and is identical to the previous register reading, it will be omitted.
+    - Example: **REGULAR**.
+- ENTRIES [NUMERIC]:
+    - The cumulative ENTRY register value for a device. This register was initialized during system setup. It is a 10 digit number representing the number of entries on the specific device since its inception. Other forms of initialization may occur upon roll-over of the counter, erasing the memory device containing the register data, and replacing the processing device of the turnstile;
+    - Example: **0001649720**.
+- EXITS [NUMERIC]:
+    - The cumulative EXITS register value for a device. This register was initialized during system setup. It is a 10 digit number representing the number of entries on the specific device since its inception. Other forms of initialization may occur upon roll-over of the counter, erasing the memory device containing the register data, and replacing the processing device of the turnstile;
+    - Example: **0004863606**.
+
 ## Metropolitan Transportation Authority Turnstile Usage Overview
 
 ### General Description
